@@ -94,6 +94,7 @@ static unsigned long lowmem_deathpending_timeout;
 			pr_info(x);			\
 	} while (0)
 
+#if defined(CONFIG_SEC_OOM_KILLER) && defined(CONFIG_SEC_DEBUG_LMK_MEMINFO)
 static void dump_tasks_info(void)
 {
 	struct task_struct *p;
@@ -125,6 +126,7 @@ static void dump_tasks_info(void)
 		task_unlock(task);
 	}
 }
+#endif
 
 static int test_task_flag(struct task_struct *p, int flag)
 {
