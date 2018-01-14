@@ -1438,6 +1438,7 @@ static DEVICE_ATTR(bw_mode_bitmap, S_IRUGO | S_IWUSR | S_IWGRP, NULL,
 
 static struct attribute *mdp_fs_attrs[] = {
 	&dev_attr_caps.attr,
+	&dev_attr_bw_mode_bitmap.attr,
 	NULL
 };
 
@@ -2760,6 +2761,7 @@ static int mdss_mdp_parse_dt_misc(struct platform_device *pdev)
 		"qcom,max-bandwidth-per-pipe-kbps", &mdata->max_bw_per_pipe);
 	if (rc)
 		pr_debug("max bandwidth (per pipe) property not specified\n");
+
 
 	mdss_mdp_parse_max_bandwidth(pdev);
 

@@ -985,8 +985,8 @@ static int mdss_mdp_set_threshold_max_bandwidth(struct mdss_mdp_ctl *ctl)
 	if (!ctl->mdata->max_bw_settings_cnt && !ctl->mdata->max_bw_settings)
 		return 0;
 
- 	mode = ctl->mdata->bw_mode_bitmap;
- 
+	mode = ctl->mdata->bw_mode_bitmap;
+
 	if (!((mode & MDSS_MAX_BW_LIMIT_HFLIP) &&
 				(mode & MDSS_MAX_BW_LIMIT_VFLIP)))
 		mode |= mdss_check_for_flip(ctl);
@@ -1031,7 +1031,7 @@ int mdss_mdp_perf_bw_check(struct mdss_mdp_ctl *ctl,
 	threshold = ctl->is_video_mode ? mdata->max_bw_low : mdata->max_bw_high;
 
 	max_bw = mdss_mdp_set_threshold_max_bandwidth(ctl);
-
+ 
 	if (max_bw && (max_bw < threshold))
 		threshold = max_bw;
 
